@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block childpage %}
+<style>
+    .alu:hover
+    {
+        filter:scale(100%);
+        transition:1s;
+        transform:scale(1.02);
+
+    }
+</style>
+
+
+<div class="container bg-mycolor4">
+    <!-- start heading-->
+<div class="row">
+    <div class="col-sm-5 mx-auto text-center my-4">
+        <p class="fs-3 m-0">Our <b class="txt-color1">Alumni
+        <i class="fa-solid fa-building"></i>
+        </b></p>
+        <i> "Success is not final, failure is not fatal: It is the courage to continue that counts."</i>
+        <hr/>
+    </div>
+</div>
+<!-- end heading-->
+
+    <div class="row my-4">
+        {% for a in adata %}
+        <div class="col-sm-4">
+            <div class="card alu mx-auto mt-3" style="width: 18rem;">
+  <div class="card-body border-0 bg-mycolor6 ">
+      <center><img class="rounded-circle imgcenter" width="120" height="120" src="../{{a.student_picture}}"/>
+      <h4 class="card-title mt-2">{{a.name}}</h4>
+    <h6 class="card-subtitle mb-2 text-body-secondary">{{a.company_name}}</h6>
+    <h6 class="card-subtitle mb-2 text-body-secondary"><b>{{a.placement_session}}</b></h6>
+          </center>
+  </div>
+</div>
+        </div>
+      {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
